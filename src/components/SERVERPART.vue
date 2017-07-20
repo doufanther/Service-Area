@@ -1,12 +1,14 @@
 <template>
 	<div class="serverpart">
-		<ul v-show="show">
-			<li v-for="(item,index) in serverpart" @click="goDetail(index)">
-				<p>内码{{item.SERVERPART_ID}}</p>
-				<p>服务区名称	{{item.SERVERPART_NAME}}</p>
-				<p>服务区编码{{item.SERVERPART_CODE}}</p>
-				<p>地址{{item.SERVERPART_ADDRESS}}</p>
-			</li>
+		<ul>
+			<router-link to="/serverpartshop">
+				<li v-for="(item,index) in serverpart" @click="goDetail(index)" :shop="selectedShop">
+					<p>内码{{item.SERVERPART_ID}}</p>
+					<p>服务区名称	{{item.SERVERPART_NAME}}</p>
+					<p>服务区编码{{item.SERVERPART_CODE}}</p>
+					<p>地址{{item.SERVERPART_ADDRESS}}</p>
+				</li>
+			</router-link>
 		</ul>
 		<serverpart-shop :shop="selectedShop" v-if="selectedShop"></serverpart-shop>	
 	</div>
@@ -24,7 +26,6 @@
 		data(){
 			return {
 				url:'http://test.eshangtech.com:6060/HighWay/Handler/handler_ajax.ashx?action_type=getTotalServerPart',
-				show:'true',
 				serverpart:'',
 				selectedShop: ''//内码
 			}
@@ -42,8 +43,7 @@
 		},
 		methods:{
 			goDetail(index) {
-				this.show=false;
-      			this.selectedShop=this.serverpart[index].SERVERPART_ID
+				this.selectedShop=this.serverpart[index].SERVERPART_ID
 			}
 		},
 		components: {

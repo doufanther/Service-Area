@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import ElementUI from 'element-ui'
-
+import serverpartshop from '../components/serverpartshop'
 import 'element-ui/lib/theme-default/index.css'
 
 Vue.use(Router);
@@ -14,6 +14,7 @@ export default new Router({
 	}),
 	linkActiveClass:'active',
   routes: [
-
+  		{path: '/serverpart', redirect: '/home'},
+		{ path: '/serverpartshop' , component: serverpartshop }
   ]
 })

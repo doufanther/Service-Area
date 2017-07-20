@@ -1,6 +1,7 @@
 <template>
 	<div class="Endaccount">
-		<div class="main" v-show="show">
+		<div class="main" v-show="countShow">
+			<h3 @click="toBack">返回上一页</h3>
 			<h1>结账</h1>
 			<ul>
 				<li v-for="(item,index) in Endaccount" >
@@ -29,14 +30,16 @@
 		   
 		},
 	    props: {
-		    count: String
+		    count:String,
+		    isShow:Boolean
 		},
 		data() {
 		    return {
 		    	url:'http://test.eshangtech.com:6060/HighWay/Handler/handler_ajax.ashx?action_type=getServerPartEndaccount&action_data=',
 				Endaccount:'',
 				selectedCount:'',
-				show:'true'
+				shopShow:this.isShow,
+				countShow:true
 		    }
 		},
 		created(){
@@ -51,7 +54,12 @@
 		   
 		},
 		methods: {
-		    
+		    toBack(){
+		    	console.log('返回上一页');
+		    	this.countShow=!this.countShow;
+		    	console.log(this.shopShow);
+		    	this.shopShow=!this.shopShow;
+		    }
 		}
 	}
 </script>
