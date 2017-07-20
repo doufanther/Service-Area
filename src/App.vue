@@ -2,16 +2,17 @@
   <div id="app">
 		<v-header></v-header>
   	<div class="tab">
-  		<div class="tab-item"><router-link to="/SERVERPART">服务区</router-link></div>
-  		<!--<div class="tab-item"><router-link to="/ServerPartShop">门店</router-link></div>
-  		<div class="tab-item"><router-link to="/Endaccount">结账</router-link></div>-->
+  		<server-part></server-part>
   	</div>
-		<router-view></router-view>
+		
   </div>
 </template>
 
 <script>
     import header from './components/header.vue'
+    
+    import serverpart from './components/serverpart.vue'
+    
     import axios from 'axios'
    
 		export default{
@@ -25,7 +26,8 @@
 //				})
 			},
 			components:{
-			  	'v-header':header
+			  	'v-header':header,
+			  	'server-part':serverpart
 			}
 	  }
 </script>
