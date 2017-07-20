@@ -1,19 +1,17 @@
 <template>
 	<div class="serverpartshop">
-		<!--<div class="main" v-show="shopShow">
+		<div class="main" v-show="shopshow">
 			<h1>门店</h1>
 			<ul>
 				<li v-for="(item,index) in serverpartshop"  @click="goDetail(index)">
 					<p>内码{{item.SERVERPARTSHOP_ID}}</p>
-					<p>门店名称	{{item.SHOPNAME}}</p>
+					<p>门店名称{{item.SHOPNAME}}</p>
 					<p>门店编码{{item.SHOPCODE}}</p>
 				</li>
 			</ul>
 		</div>
-		<endac-count :count="selectedCount" :isShow="shopShow" v-if="selectedCount"></endac-count>-->
-	门店
+		<endac-count :count="selectedCount"  v-if="selectedCount"></endac-count>
 	</div>
-	
 </template>
 
 <script>
@@ -32,7 +30,7 @@
 		    	url:'http://test.eshangtech.com:6060/HighWay/Handler/handler_ajax.ashx?action_type=getServerPartShop&action_data=',
 				serverpartshop:'',
 				selectedCount:'',
-				shopShow:'true'
+				shopshow:true
 		    }
 		},
 		created(){
@@ -48,9 +46,10 @@
 		},
 		methods: {
 		    goDetail(index) {
-				this.shopShow=!this.shopShow;
-      			this.selectedCount=this.serverpartshop[index].SERVERPARTSHOP_ID
+				this.selectedCount=this.serverpartshop[index].SERVERPARTSHOP_ID;
+				this.shopshow=false
 			}
+			
 		}
 	}
 </script>
