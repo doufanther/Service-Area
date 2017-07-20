@@ -1,5 +1,5 @@
 <template>
-	<div>i am 评价</div>
+	<div> 结账</div>
 </template>
 
 <script>

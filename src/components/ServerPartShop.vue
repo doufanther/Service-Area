@@ -1,5 +1,5 @@
 <template>
-	<div> i am 商家</div>
+	<div class="ServerPartShop">门店</div>
 </template>
 
 <script>
